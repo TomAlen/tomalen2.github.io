@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.manyToMany1.custom" table="顾客表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="name" column="姓名"></property>
+    <!-- 把外键放入第三方表中 -->
+    <set name="teams" table="顾客打折对应表">
+    <key column="顾客_id"/>
+    <many-to-many class="pojo.manyToMany1.Good" column="打折群_id"/>
+    </set>
+    </class>
+</hibernate-mapping>
+
+
+

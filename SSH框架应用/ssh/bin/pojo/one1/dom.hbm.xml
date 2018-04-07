@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.one1.dom" table="宿舍表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="domName" column="宿舍名"></property>
+    <set name="student" table="学生表" cascade="save-update">
+    <key column="宿舍_id"/>
+    <one-to-many class="pojo.one1.student"/>
+    </set>
+   </class>
+</hibernate-mapping>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.student" table="学生表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="name" column="姓名"></property>
+    <property name="age" column="年龄"></property>
+    <property name="stuId" column="学号"></property>
+    <!-- <property name="count" formula="(select count(score.id) from score where score.stu_id=1 and score.score &lts; 60)"/> -->
+    
+    
+    <!-- list name="qqs" table="QQ表">
+    <key column="stu_id"/>
+    <list-index column="index-"/>
+    <element type="string" column="qq号"/>
+    </list> -->
+ 
+    <map name="concats" table="联系表">
+    <key column="stu_id"/>
+    <map-key type="string" column="类型_key"/>
+    <element type="string" column="详情_values"/>
+    </map> 
+   </class>
+</hibernate-mapping>
+
+
+

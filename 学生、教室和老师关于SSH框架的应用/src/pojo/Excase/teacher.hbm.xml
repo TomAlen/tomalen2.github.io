@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.Excase.teacher" table="教师表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="name" column="姓名"></property>
+    <property name="teacherNo" column="教师工号"></property>
+    
+    <one-to-one name="manageClassz" class="pojo.Excase.classz" property-ref="claManage"/>
+    </class>
+</hibernate-mapping>
+

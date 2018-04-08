@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.Excase.student" table="学生表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="name" column="姓名"></property>
+    <property name="stuId" column="学号"></property>
+    
+    <list name="familyPhone" table="家庭电话表">
+    <key column="stu_id"/>
+    <list-index column="lists"/>
+    <element type="string" column="电话"/>
+    </list>
+     
+    <many-to-one name="myClassz" column="班级_id" class="pojo.Excase.classz" />
+    
+    </class>
+</hibernate-mapping>
+
+
+

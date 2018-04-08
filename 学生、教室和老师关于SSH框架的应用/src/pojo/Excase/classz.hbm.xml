@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.Excase.classz" table="班级表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <property name="name" column="班级名"></property>
+   
+    <set name="members" table="学生表">
+    <key column="班级_id"/>
+    <one-to-many class="pojo.Excase.student"/>
+    </set>
+    
+    <many-to-one unique="true" name="moniter" column="班长"/>
+    
+    <set name="teachers" table="教师任课对应班级表">
+    <key column="班级_id"/>
+    <many-to-many class="pojo.Excase.teacher" column="老师_id" />
+    </set>
+    
+    <many-to-one unique="true" name="claManage" column="班主任"/>
+    
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojo.Thread.amount" table="账户表">
+    <id name="id">
+        <generator class="native"/>
+    </id>
+    <!-- version是Hibernate的一个乐观锁机制 -->
+    <version name="version" column="版本号"></version>
+    <property name="amountNo" column="账户号"></property>
+    <property name="money" column="金额"></property>
+    
+    </class>
+</hibernate-mapping>
+
+
+
